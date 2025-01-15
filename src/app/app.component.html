@@ -23,19 +23,17 @@
       </div>
       <ul class="menu__list">
         <li class="menu__item">
-          <a href="#products__title" class="menu__link">Пироженки</a>
+          <a href="#" class="menu__link" (click)="scrollTo(productsElement)">Пироженки</a>
         </li>
         <li class="menu__item">
-          <a href="#advantages__title" class="menu__link">О нас</a>
+          <a href="#" class="menu__link" (click)="scrollTo(advantagesElement)">О нас</a>
         </li>
         <li class="menu__item">
-          <a href="#order__title" class="menu__link">Оформить заказ</a>
+          <a href="#" class="menu__link" (click)="scrollTo(orderElement)">Оформить заказ</a>
         </li>
       </ul>
     </nav>
-    <a href="tel:+375293689868" class="phone header__phone">
-      +375 (29) 368-98-68
-    </a>
+    <a href="tel:+375293689868" class="phone header__phone">{{ numberPhone }}</a>
     <div class="header__burger" id="header__burger">
       <img class="header__burger-img" src="assets/images/burger.png" alt="Меню">
     </div>
@@ -56,7 +54,7 @@
       </p>
     </div>
     <div class="main__action">
-      <button class="btn main__btn">Выбрать макарун</button>
+      <button class="btn main__btn" (click)="scrollTo(productsElement)">Выбрать макарун</button>
     </div>
     <div class="main__image">
       <img src="assets/images/set.png" alt="Комплект пирожных" class="main__image-img">
@@ -66,9 +64,9 @@
   </div>
 </section>
 
-<section class="advantages">
+<section class="advantages" #advantagesElement>
   <div class="container advantages__container">
-    <h2 class="advantages__title" id="advantages__title">
+    <h2 class="advantages__title">
       Мы печём для вас вкуснейшие макаруны уже более 10 лет
     </h2>
     <div class="advantages__general">
@@ -82,154 +80,43 @@
       <img class="advantages__image-img" src="assets/images/macaroon.png" alt="Макарун">
     </div>
     <div class="advantages__items">
-      <div class="advantage">
-        <div class="advantage__number">1</div>
-        <h3 class="advantage__dignity">
-          Лучшие продукты
-        </h3>
+      <div class="advantage" *ngFor="let advantage of advantages, let i = index">
+        <div class="advantage__number">{{ i + 1 }}</div>
+        <h3 class="advantage__dignity">{{ advantage.dignity }}</h3>
         <div class="advantage__description">
-          <p class="advantage__text">
-            Мы честно готовим макаруны только из натуральных и качественных продуктов. Мы не используем
-            консерванты, ароматизаторы и красители.
-          </p>
-        </div>
-      </div>
-      <div class="advantage">
-        <div class="advantage__number">2</div>
-        <h3 class="advantage__dignity">
-          Много вкусов
-        </h3>
-        <div class="advantage__description">
-          <p class="advantage__text">
-            Наша задача – предоставить вам широкое разнобразие вкусов. Вы удивитесь, но у нас более 70
-            вкусов
-            пироженок.
-          </p>
-        </div>
-      </div>
-      <div class="advantage">
-        <div class="advantage__number">3</div>
-        <h3 class="advantage__dignity">
-          Бисквитное тесто
-        </h3>
-        <div class="advantage__description">
-          <p class="advantage__text">
-            Все пирожные готовятся на бисквитном тесте с качественным сливочным маслом 82,5%. В составе нет
-            маргарина и дрожжей!
-          </p>
-        </div>
-      </div>
-      <div class="advantage">
-        <div class="advantage__number">4</div>
-        <h3 class="advantage__dignity">
-          Честный продукт
-        </h3>
-        <div class="advantage__description">
-          <p class="advantage__text">
-            Вкус, качество и безопасность наших пирогов подтверждена декларацией о соответствии, которую мы
-            получили 22.06.2016 г.
-          </p>
+          <p class="advantage__text">{{ advantage.description }} </p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="products">
+<section class="products" #productsElement>
   <div class="container products__container">
     <h2 class="products__title" id="products__title">
       Выберите свой макарун
     </h2>
     <div class="products__items">
-      <div class="products__item">
+      <div class="products__item" *ngFor="let product of products">
         <div class="products__image">
-          <img src="assets/images/product1.png" alt="Макарун" class="products__image-img">
+          <img src="assets/images/{{product.image}}" alt="Макарун" class="products__image-img">
         </div>
-        <h4 class="products__name">
-          Макарун с малиной
-        </h4>
+        <h4 class="products__name">{{ product.name }}</h4>
         <div class="products__quantity">
-          <p class="products__quantity-data">
-            1 шт.
-          </p>
+          <p class="products__quantity-data">{{ product.quantity }} шт.</p>
         </div>
         <div class="products__price">
-          <p class="products__price-data">
-            1,70 руб.
-          </p>
+          <p class="products__price-data">{{product.price | number:'1.2-2':'ru'}} руб.</p>
         </div>
         <div class="products__action">
-          <button class="btn products__btn">Заказать</button>
-        </div>
-      </div>
-      <div class="products__item">
-        <div class="products__image">
-          <img src="assets/images/product2.png" alt="Макарун" class="products__image-img">
-        </div>
-        <h4 class="products__name">
-          Макарун с манго
-        </h4>
-        <div class="products__quantity">
-          <p class="products__quantity-data">
-            1 шт.
-          </p>
-        </div>
-        <div class="products__price">
-          <p class="products__price-data">
-            1,70 руб.
-          </p>
-        </div>
-        <div class="products__action">
-          <button class="btn products__btn">Заказать</button>
-        </div>
-      </div>
-      <div class="products__item">
-        <div class="products__image">
-          <img src="assets/images/product3.png" alt="Макарун" class="products__image-img">
-        </div>
-        <h4 class="products__name">
-          Пирог с ванилью
-        </h4>
-        <div class="products__quantity">
-          <p class="products__quantity-data">
-            1 шт.
-          </p>
-        </div>
-        <div class="products__price">
-          <p class="products__price-data">
-            1,70 руб.
-          </p>
-        </div>
-        <div class="products__action">
-          <button class="btn products__btn">Заказать</button>
-        </div>
-      </div>
-      <div class="products__item">
-        <div class="products__image">
-          <img src="assets/images/product4.png" alt="Макарун" class="products__image-img">
-        </div>
-        <h4 class="products__name">
-          Пирог с фисташками
-        </h4>
-        <div class="products__quantity">
-          <p class="products__quantity-data">
-            1 шт.
-          </p>
-        </div>
-        <div class="products__price">
-          <p class="products__price-data">
-            1,70 руб.
-          </p>
-        </div>
-        <div class="products__action">
-          <button class="btn products__btn">Заказать</button>
+          <button class="btn products__btn" (click)="addToCart(product, orderElement)">Заказать</button>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="order">
+<section class="order" #orderElement>
   <div class="container order__container">
     <div class="order__image">
       <img src="assets/images/macaroons.png" alt="Макаруны" class="order__image-img">
@@ -252,13 +139,14 @@
       <label class="order__label">
         Ваш выбор
         <input type="text" name="choice" class="base-input order__base-input-first"
-               placeholder="Напишите, что хотите заказать...">
+               placeholder="Напишите, что хотите заказать..." [(ngModel)]="formValues.productTitle">
       </label>
       <label class="order__label">
         Заполните данные для заказа
-        <input type="text" name="name" class="base-input order__base-input-second" placeholder="Ваше имя">
+        <input type="text" name="name" class="base-input order__base-input-second" placeholder="Ваше имя"
+               [(ngModel)]="formValues.name">
         <input type="tel" name="phone" class="base-input order__base-input-three"
-               placeholder="+375 (__) ___ - __ - __">
+               placeholder="+375 (__) ___ - __ - __" [(ngModel)]="formValues.phone">
         <button name="submit" class="btn order__btn">Оформить заказ</button>
       </label>
     </form>
@@ -270,7 +158,7 @@
     <div class="logo footer__logo">
       <img src="assets/images/logo.png" alt="Логотип">
     </div>
-    <a href="#" class="footer__image-instagram">
+    <a [href]="linkInstagram" class="footer__image-instagram">
       <img src="assets/images/instagram.png" alt="Instagram" class="footer__image-img">
       <div class="footer__text">
         <p class="footer__text-instagram">
@@ -278,9 +166,7 @@
         </p>
       </div>
     </a>
-    <a href="tel:+375293689868" class="phone footer__phone">
-      +375 (29) 368-98-68
-    </a>
+    <a href="tel:+375293689868" class="phone footer__phone">{{ numberPhone }}</a>
     <div class="footer__rights">
       <p class="footer__rights-text">
         Все права защищены, 2020
@@ -289,7 +175,7 @@
   </div>
 </footer>
 
-<div class="present">
+<div class="present" [style.display]="showPresent ? 'block' : 'none'">
   <a href="#order__title" class="present__block-hidden">
     <div class="present__frame-hidden">
       <p class="present__text present__text-first">

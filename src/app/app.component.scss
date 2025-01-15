@@ -1,41 +1,5 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
-@font-face {
-  font-family: "Gilroy";
-  src: url("../assets/fonts/gilroy-regular.ttf");
-}
-
-@font-face {
-  font-family: "GilroyMedium";
-  src: url("../assets/fonts/gilroy-medium.ttf");
-}
-
-@font-face {
-  font-family: "GilroyBold";
-  src: url("../assets/fonts/gilroy-bold.ttf");
-}
-
-@font-face {
-  font-family: "GilroyExtraBold";
-  src: url("../assets/fonts/gilroy-extrabold.ttf");
-}
-
-@font-face {
-  font-family: "Tavolga";
-  src: url("../assets/fonts/tavolga-free.ttf");
-}
-
 .header {
   background: #eba8b1;
-}
-
-.container {
-  max-width: 1140px;
-  padding: 0 15px;
-  margin: 0 auto;
 }
 
 .header__container {
