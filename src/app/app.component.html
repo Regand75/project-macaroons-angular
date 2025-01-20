@@ -54,7 +54,7 @@
       </p>
     </div>
     <div class="main__action">
-      <button class="btn main__btn" (click)="scrollTo(productsElement)">Выбрать макарун</button>
+      <button class="btn main__btn" effectButton (click)="scrollTo(productsElement)">Выбрать макарун</button>
     </div>
     <div class="main__image">
       <img src="assets/images/set.png" alt="Комплект пирожных" class="main__image-img">
@@ -127,7 +127,7 @@
                [(ngModel)]="formValues.name">
         <input type="tel" name="phone" class="base-input order__base-input-three"
                placeholder="+375 (__) ___ - __ - __" [(ngModel)]="formValues.phone">
-        <button name="submit" class="btn order__btn">Оформить заказ</button>
+        <button name="submit" class="btn order__btn" effectButton>Оформить заказ</button>
       </label>
     </form>
   </div>
