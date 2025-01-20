@@ -1,0 +1,15 @@
+<div class="products__item">
+  <div class="products__image">
+    <img src="assets/images/{{product.image}}" alt="Макарун" class="products__image-img">
+  </div>
+  <h4 class="products__name">{{ product.name }}</h4>
+  <div class="products__quantity">
+    <p class="products__quantity-data">{{ product.quantity }} шт.</p>
+  </div>
+  <div class="products__price">
+    <p class="products__price-data">{{product.price | number:'1.2-2':'ru'}} руб.</p>
+  </div>
+  <div class="products__action">
+    <button class="btn products__btn" effectButton (click)="addProductToCart()">Заказать</button>
+  </div>
+</div>

@@ -5,13 +5,19 @@ import { AppComponent } from './app.component';
 import {FormsModule} from "@angular/forms";
 import {registerLocaleData} from "@angular/common";
 import localeRu from '@angular/common/locales/ru';
+import { AdvantageComponent } from './components/advantage/advantage.component';
+import { ProductComponent } from './components/product/product.component';
+import { EffectButtonDirective } from './directives/effect-button.directive';
 
 // Регистрируем локаль 'ru'
 registerLocaleData(localeRu);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AdvantageComponent,
+    ProductComponent,
+    EffectButtonDirective
   ],
   imports: [
     BrowserModule,

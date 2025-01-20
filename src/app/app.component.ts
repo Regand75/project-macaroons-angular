@@ -1,13 +1,16 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AdvantageType} from "./types/advantage.type";
 import {ProductType} from "./types/product.type";
+import {ProductService} from "./services/product.service";
+import {CartService} from "./services/cart.service";
+import {ProductsAmountService} from "./services/products-amount.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   public advantages: AdvantageType[] = [
     {
       dignity: 'Лучшие продукты',
@@ -27,34 +30,9 @@ export class AppComponent {
     },
   ];
 
-  public products: ProductType[] = [
-    {
-      image: 'product1.png',
-      name: 'Макарун с малиной',
-      quantity: 1,
-      price: 1.70,
-    },
-    {
-      image: 'product2.png',
-      name: 'Макарун с манго',
-      quantity: 1,
-      price: 1.80,
-    },
-    {
-      image: 'product3.png',
-      name: 'Пирог с ванилью',
-      quantity: 1,
-      price: 1.75,
-    },
-    {
-      image: 'product4.png',
-      name: 'Пирог с фисташками',
-      quantity: 1,
-      price: 1.55,
-    },
-  ];
+  public products: ProductType[] = [];
 
-  showPresent: boolean = false;
+  showCart: boolean = true;
   numberPhone: string = '+375 (29) 368-98-68';
   linkInstagram: string = 'https://www.instagram.com/';
 
@@ -64,6 +42,13 @@ export class AppComponent {
     phone: '',
   }
 
+  constructor(private productService: ProductService, public cartService: CartService, public productsAmountService: ProductsAmountService) {
+  }
+
+  ngOnInit(): void {
+    this.products = this.productService.getProducts();
+  }
+
   public scrollTo(target: HTMLElement): void {
     target.scrollIntoView({behavior: "smooth" });
   }
@@ -71,5 +56,8 @@ export class AppComponent {
   public addToCart(product: ProductType, target: HTMLElement): void {
     this.scrollTo(target);
     this.formValues.productTitle = product.name.toUpperCase();
+    this.cartService.count++;
+    this.productsAmountService.amount = this.productsAmountService.amount + product.price;
+    alert(`${product.name} добавлен в корзину`);
   }
 }

@@ -80,13 +80,7 @@
       <img class="advantages__image-img" src="assets/images/macaroon.png" alt="Макарун">
     </div>
     <div class="advantages__items">
-      <div class="advantage" *ngFor="let advantage of advantages, let i = index">
-        <div class="advantage__number">{{ i + 1 }}</div>
-        <h3 class="advantage__dignity">{{ advantage.dignity }}</h3>
-        <div class="advantage__description">
-          <p class="advantage__text">{{ advantage.description }} </p>
-        </div>
-      </div>
+      <advantage *ngFor="let advantage of advantages, let i = index" [advantage]="advantage" [index]="i"></advantage>
     </div>
   </div>
 </section>
@@ -97,21 +91,7 @@
       Выберите свой макарун
     </h2>
     <div class="products__items">
-      <div class="products__item" *ngFor="let product of products">
-        <div class="products__image">
-          <img src="assets/images/{{product.image}}" alt="Макарун" class="products__image-img">
-        </div>
-        <h4 class="products__name">{{ product.name }}</h4>
-        <div class="products__quantity">
-          <p class="products__quantity-data">{{ product.quantity }} шт.</p>
-        </div>
-        <div class="products__price">
-          <p class="products__price-data">{{product.price | number:'1.2-2':'ru'}} руб.</p>
-        </div>
-        <div class="products__action">
-          <button class="btn products__btn" (click)="addToCart(product, orderElement)">Заказать</button>
-        </div>
-      </div>
+      <product *ngFor="let product of products" [product]="product" (addToCartEvent)="addToCart($event, orderElement)"></product>
     </div>
   </div>
 </section>
@@ -175,19 +155,17 @@
   </div>
 </footer>
 
-<div class="present" [style.display]="showPresent ? 'block' : 'none'">
-  <a href="#order__title" class="present__block-hidden">
-    <div class="present__frame-hidden">
-      <p class="present__text present__text-first">
-        Оформите заказ
+<div class="cart" [style.display]="showCart ? 'block' : 'none'">
+  <a href="#order__title" class="cart__block-hidden">
+    <div class="cart__frame-hidden">
+      <p class="cart__text">
+        {{productsAmountService.amount | number:'1.2-2':'ru'}} руб.
       </p>
-      <p class="present__text present__text-second">
-        и получите подарок!
-      </p>
-      <div class="present__frame-arrow"></div>
+      <div class="cart__frame-arrow"></div>
     </div>
   </a>
-  <div class="present__block-fixed">
-    <img src="assets/images/present.png" alt="Подарок" class="present__image-img">
+  <div class="cart__block-fixed">
+    <img src="assets/images/cart.png" alt="Корзина" class="cart__image-img">
   </div>
+  <div class="cart__count">{{cartService.count}}</div>
 </div>

@@ -1,0 +1,75 @@
+.advantage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.advantage__number {
+  border-radius: 50%;
+  border: none;
+  width: 70px;
+  height: 70px;
+  background-color: #821328;
+  text-align: center;
+  font-size: 60px;
+  font-family: "GilroyExtraBold", sans-serif;
+  color: rgb(255, 255, 255);
+  line-height: 1.6;
+  margin-bottom: 9px;
+  transition: all .5s ease;
+}
+
+.advantage:hover .advantage__number {
+  background-color: #eba8b1;
+  color: rgb(130, 19, 40);
+}
+
+.advantage__dignity {
+  font-size: 20px;
+  font-family: "GilroyExtraBold", sans-serif;
+  color: rgb(51, 25, 7);
+  margin-bottom: 13px;
+}
+
+.advantage__text {
+  font-size: 15px;
+  font-family: "GilroyMedium", sans-serif;
+  color: rgb(51, 25, 7);
+  line-height: 1.333;
+}
+
+@media screen and (max-width: 499px) {
+  .advantage {
+    max-width: 166px;
+  }
+
+  .advantage__dignity {
+    padding-right: 19px;
+    padding-left: 19px;
+  }
+}
+
+@media screen and (max-width: 424px) {
+  .advantage__dignity {
+    padding-right: 26px;
+    padding-left: 26px;
+  }
+
+  .advantage__dignity {
+    font-size: 18px;
+  }
+
+  .advantage__text {
+    font-size: 13px;
+    line-height: 1.385;
+  }
+}
+
+@media screen and (max-width: 374px) {
+  .advantage__dignity {
+    padding-left: 13px;
+    padding-right: 13px;
+  }
+}
+
