@@ -10,6 +10,7 @@ import { ProductComponent } from './components/product/product.component';
 import { EffectButtonDirective } from './directives/effect-button.directive';
 import { TextReductionPipe } from './pipes/text-reduction.pipe';
 import { ShowFullTextDirective } from './directives/show-full-text.directive';
+import { GeneratingPhoneNumberPipe } from './pipes/generating-phone-number.pipe';
 
 // Регистрируем локаль 'ru'
 registerLocaleData(localeRu);
@@ -21,7 +22,8 @@ registerLocaleData(localeRu);
     ProductComponent,
     EffectButtonDirective,
     TextReductionPipe,
-    ShowFullTextDirective
+    ShowFullTextDirective,
+    GeneratingPhoneNumberPipe
   ],
   imports: [
     BrowserModule,

@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
   public products: ProductType[] = [];
 
   showCart: boolean = true;
-  numberPhone: string = '+375 (29) 368-98-68';
+  numberPhone: string = '375293689868';
   linkInstagram: string = 'https://www.instagram.com/';
 
   public formValues = {
