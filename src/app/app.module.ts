@@ -8,6 +8,7 @@ import localeRu from '@angular/common/locales/ru';
 import { AdvantageComponent } from './components/advantage/advantage.component';
 import { ProductComponent } from './components/product/product.component';
 import { EffectButtonDirective } from './directives/effect-button.directive';
+import { TextReductionPipe } from './pipes/text-reduction.pipe';
 
 // Регистрируем локаль 'ru'
 registerLocaleData(localeRu);
@@ -17,7 +18,8 @@ registerLocaleData(localeRu);
     AppComponent,
     AdvantageComponent,
     ProductComponent,
-    EffectButtonDirective
+    EffectButtonDirective,
+    TextReductionPipe
   ],
   imports: [
     BrowserModule,

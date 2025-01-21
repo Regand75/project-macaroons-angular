@@ -7,7 +7,7 @@
     <p class="products__quantity-data">{{ product.quantity }} шт.</p>
   </div>
   <div class="products__price">
-    <p class="products__price-data">{{product.price | number:'1.2-2':'ru'}} руб.</p>
+    <p class="products__price-data">{{product.price | currency:'RUB':'':'1.2-2':'en-US'}} руб.</p>
   </div>
   <div class="products__action">
     <button class="btn products__btn" effectButton (click)="addProductToCart()">Заказать</button>
