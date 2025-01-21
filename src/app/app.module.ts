@@ -9,6 +9,7 @@ import { AdvantageComponent } from './components/advantage/advantage.component';
 import { ProductComponent } from './components/product/product.component';
 import { EffectButtonDirective } from './directives/effect-button.directive';
 import { TextReductionPipe } from './pipes/text-reduction.pipe';
+import { ShowFullTextDirective } from './directives/show-full-text.directive';
 
 // Регистрируем локаль 'ru'
 registerLocaleData(localeRu);
@@ -19,7 +20,8 @@ registerLocaleData(localeRu);
     AdvantageComponent,
     ProductComponent,
     EffectButtonDirective,
-    TextReductionPipe
+    TextReductionPipe,
+    ShowFullTextDirective
   ],
   imports: [
     BrowserModule,
